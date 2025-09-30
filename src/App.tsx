@@ -100,10 +100,25 @@ function App() {
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
         {!selectedPill && (
           <div className="text-center animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 drop-shadow-2xl">
-              The Choice is Yours
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 animate-glow"
+                 style={{ textShadow: '0 0 30px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 215, 0, 0.3)'  }}>
+              <span className="inline-block animate-letter-fade">T</span>
+              <span className="inline-block animate-letter-fade" style={{ animationDelay: '0.1s' }}>h</span>
+              <span className="inline-block animate-letter-fade" style={{ animationDelay: '0.2s' }}>e</span>
+              <span className="inline-block animate-letter-fade" style={{ marginLeft: '0.2em', animationDelay: '0.3s' }}>C</span>
+              <span className="inline-block animate-letter-fade" style={{ animationDelay: '0.4s' }}>h</span>
+              <span className="inline-block animate-letter-fade" style={{ animationDelay: '0.5s' }}>o</span>
+              <span className="inline-block animate-letter-fade" style={{ animationDelay: '0.6s' }}>i</span>
+              <span className="inline-block animate-letter-fade" style={{ animationDelay: '0.7s' }}>c</span>
+              <span className="inline-block animate-letter-fade" style={{ marginLeft: '0.2em', animationDelay: '0.8s' }}>I</span>
+              <span className="inline-block animate-letter-fade" style={{ animationDelay: '0.9s' }}>s</span>
+              <span className="inline-block animate-letter-fade" style={{ marginLeft: '0.2em', animationDelay: '1.0s' }}>Y</span>
+              <span className="inline-block animate-letter-fade" style={{ animationDelay: '1.1s' }}>o</span>
+              <span className="inline-block animate-letter-fade" style={{ animationDelay: '1.2s' }}>u</span>
+              <span className="inline-block animate-letter-fade" style={{ marginLeft: '0.2em', animationDelay: '1.3s' }}>R</span>
+              <span className="inline-block animate-letter-fade" style={{ animationDelay: '1.4s' }}>s</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto animate-fade-in-delay">
+            <p className="text-xl text-amber-100 mb-12 max-w-2xl mx-auto animate-typewriter overflow-hidden whitespace-nowrap">
               Select a pill to reveal your destiny. The universe awaits your decision...
             </p>
 
@@ -219,6 +234,25 @@ function App() {
           0%, 100% { transform: translateY(0) scale(1); }
           50% { transform: translateY(-10px) scale(1.05); }
         }
+        @keyframes letter-fade {
+          0% { opacity: 0; transform: translateY(30px) rotateY(90deg); filter: blur(5px); }
+          60% { opacity: 1; transform: translateY(-5px) rotateY(0deg); filter: blur(0px); }
+          80% { transform: translateY(2px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes glow {
+          0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 40px rgba(255, 215, 0, 0.2)); }
+          50% { filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.3)); }
+        }
+        @keyframes typewriter {
+          0% { width: 0; opacity: 1; }
+          1% { opacity: 1; }
+          100% { width: 100%; opacity: 1; }
+        }
+        @keyframes caret {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
 
         .animate-fade-in {
           animation: fade-in 1s ease-out forwards;
@@ -234,6 +268,22 @@ function App() {
         }
         .animate-float {
           animation: float 6s ease-in-out infinite;
+        }
+        .animate-glow {
+          animation: glow 3s ease-in-out infinite;
+        }
+        .animate-letter-fade {
+          animation: letter-fade 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+          opacity: 0;
+        }
+        .animate-typewriter {
+          animation: typewriter 3s steps(60, end) forwards;
+          opacity: 0;
+        }
+        .animate-typewriter::after {
+          content: '|';
+          animation: caret 1s infinite;
+          color: #FFD700;
         }
         .group:hover .group-hover\:rotate-180 {
           transform: rotate(180deg);
