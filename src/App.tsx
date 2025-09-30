@@ -77,7 +77,7 @@ function App() {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-rose-900">
+      <div className="absolute inset-0 bg-gradient-to-br from-red-900 via-rose-900 to-pink-900">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(76,182,172,0.1),transparent_50%)] animate-pulse" />
         <div className="absolute top-0 left-0 w-full h-full opacity-30">
           <div className="h-full w-full">{Array.from({ length: 20 }).map((_, i) => (
@@ -163,8 +163,8 @@ function App() {
             <div className="bg-[#271F47CC] backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 relative overflow-hidden">
               {/* Glass morphism effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-3xl" />
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-400 via-pink-400 to-red-400 rounded-full opacity-20 blur-2xl animate-float" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-blue-400 via-cyan-400 to-green-300 rounded-full opacity-20 blur-2xl animate-float" style={{ animationDelay: '2s' }} />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-red-400 via-rose-400 to-pink-400 rounded-full opacity-20 blur-2xl animate-float" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-red-300 via-rose-300 to-pink-200 rounded-full opacity-20 blur-2xl animate-float" style={{ animationDelay: '2s' }} />
 
               <div className="relative z-10 text-center">
                 <div className="text-6xl mb-6 animate-bounce">{getIcon(fortune.theme)}</div>
@@ -187,7 +187,9 @@ function App() {
                   aria-label="Try again with different fortune"
                 >
                   <span className="relative z-10">Try Again</span>
-                  <div className="absolute right-4 top-3 text-lg transform group-hover:rotate-180 transition-transform duration-500">🔄</div>
+                  <div className="absolute right-4 top-3 text-lg transform group-hover:rotate-180 transition-transform duration-500"
+                  style={{ filter: 'hue-rotate(340deg) saturate(1.2)' }}
+                >🔄</div>
                 </button>
               </div>
             </div>
