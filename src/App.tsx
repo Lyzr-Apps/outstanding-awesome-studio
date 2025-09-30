@@ -124,10 +124,10 @@ function App() {
 
             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
               {/* Red Pill */}
-              <div className="group relative">
+              <div className="group relative animate-bounce-custom">
                 <button
                   onClick={() => handlePillClick('red')}
-                  className="w-48 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-700 hover:from-red-400 hover:to-red-600 text-white font-bold text-xl shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 relative overflow-hidden focus:outline-none focus:ring-4 focus:ring-red-400/50"
+                  className="w-48 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-700 hover:from-red-400 hover:to-red-600 text-white font-bold text-xl shadow-2xl transform hover:scale-110 hover:-translate-y-2 active:scale-95 transition-all duration-300 relative overflow-hidden focus:outline-none focus:ring-4 focus:ring-red-400/50"
                   aria-label="Choose the Red Pill for bold adventurous fortunes"
                 >
                   <span className="relative z-10">Red Pill</span>
@@ -138,10 +138,10 @@ function App() {
               </div>
 
               {/* Blue Pill */}
-              <div className="group relative">
+              <div className="group relative animate-bounce-custom-slow">
                 <button
                   onClick={() => handlePillClick('blue')}
-                  className="w-48 h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 hover:from-blue-400 hover:to-blue-600 text-white font-bold text-xl shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 relative overflow-hidden focus:outline-none focus:ring-4 focus:ring-blue-400/50"
+                  className="w-48 h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 hover:from-blue-400 hover:to-blue-600 text-white font-bold text-xl shadow-2xl transform hover:scale-110 hover:-translate-y-2 active:scale-95 transition-all duration-300 relative overflow-hidden focus:outline-none focus:ring-4 focus:ring-blue-400/50"
                   aria-label="Choose the Blue Pill for calm wise fortunes"
                 >
                   <span className="relative z-10">Blue Pill</span>
@@ -253,6 +253,16 @@ function App() {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
         }
+        @keyframes bounce-custom {
+          0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
+          40% { transform: translateY(-12px) scale(1.02); }
+          60% { transform: translateY(-6px) scale(1.01); }
+        }
+        @keyframes bounce-custom-slow {
+          0%, 25%, 65%, 100% { transform: translateY(0) scale(1); }
+          35% { transform: translateY(-10px) scale(1.015); }
+          50% { transform: translateY(-5px) scale(1.01); }
+        }
 
         .animate-fade-in {
           animation: fade-in 1s ease-out forwards;
@@ -284,6 +294,12 @@ function App() {
           content: '|';
           animation: caret 1s infinite;
           color: #FFD700;
+        }
+        .animate-bounce-custom {
+          animation: bounce-custom 1.2s ease-in-out infinite;
+        }
+        .animate-bounce-custom-slow {
+          animation: bounce-custom-slow 1.6s ease-in-out infinite;
         }
         .group:hover .group-hover\:rotate-180 {
           transform: rotate(180deg);
